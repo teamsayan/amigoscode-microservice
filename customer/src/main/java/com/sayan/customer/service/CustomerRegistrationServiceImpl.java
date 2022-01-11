@@ -26,7 +26,7 @@ public class CustomerRegistrationServiceImpl implements CustomerRegistrationServ
                 .build();
 
         Customer created = customerRepository.saveAndFlush(customer);
-        FraudCheckResponse fraudCheckResponse = restTemplate.getForObject("http://localhost:8081/api/v1/fraud/{customerId}", FraudCheckResponse.class, created.getId());
+        FraudCheckResponse fraudCheckResponse = restTemplate.getForObject("http://FRAUD/api/v1/fraud/{customerId}", FraudCheckResponse.class, created.getId());
         if (fraudCheckResponse.isFraud()) {
             throw new IllegalStateException("It is a fraudster");
         }
