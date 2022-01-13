@@ -35,3 +35,7 @@ build/
 .vscode/
 
 *.log
+
+### mvn ###
+mvnw
+mvnw.cmd
